@@ -9,8 +9,13 @@ function getComputerChoice() {
     else {
         choice = "Scissors" ; 
     }    
-    return choice;
+    return choice
 }
 
+
+
 let computerChoice = getComputerChoice();
-console.log(computerChoice)
+let rawInput = prompt("Please enter your choice")
+let userInput = rawInput.charAt(0).toUpperCase() + rawInput.slice(1).toLowerCase();
+
+alert(userInput);
