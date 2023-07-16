@@ -1,5 +1,6 @@
 function getComputerChoice() {
-    number= Math.floor(Math.random()*100);
+    let number= Math.floor(Math.random()*100);
+    let choice;
     if (number < 34) {
         choice = "Rock" ;
     }
@@ -9,13 +10,37 @@ function getComputerChoice() {
     else {
         choice = "Scissors" ; 
     }    
-    return choice
+    return choice;
 }
 
 
 
-let computerChoice = getComputerChoice();
-let rawInput = prompt("Please enter your choice")
-let userInput = rawInput.charAt(0).toUpperCase() + rawInput.slice(1).toLowerCase();
+let computerSelection = getComputerChoice();
+let rawInput = prompt("Please enter your choice");
+let playerSelection = rawInput.charAt(0).toUpperCase() + rawInput.slice(1).toLowerCase();
 
-alert(userInput);
+function playRound(computerSelection, playerSelection) {
+    if (playerSelection === computerSelection) {
+        alert("It's a tie !")
+    } else if (
+        (computerSelection === "Paper" && playerSelection === "Rock") ||
+        (computerSelection === "Rock" && playerSelection === "Scissors") ||
+        (computerSelection === "Scissors" && playerSelection === "Paper")
+        ) {
+        alert("The computer wins !");   
+    } else {
+        alert("You win");
+    }
+}
+
+
+
+function game() {
+    playRound(computerSelection, playerSelection);
+    playRound(computerSelection, playerSelection);
+    playRound(computerSelection, playerSelection);
+    playRound(computerSelection, playerSelection);
+    playRound(computerSelection, playerSelection);
+}
+
+game();
