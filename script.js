@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore =0;
+
 function generateComputerChoice () {
     let number= Math.floor(Math.random()*100);
 
@@ -13,14 +16,53 @@ function generateComputerChoice () {
     } return computerSelection
 }
 
+function scoreKeeper () {
+    if (playerScore>=5) {
 
+        console.log('player wins')
+        playerScore=0;
+        computerScore=0;
+    } else if (computerScore>=5) {
+        console.log('computer wins')
+        computerScore=0;
+        playerScore=0;
+    }
+}
+
+function moveComparator() {
+    if (playerSelection === computerSelection) {
+        
+        //if the values are same//
+        
+    } else if (
+        (computerSelection === "paper" && playerSelection === "rock") ||
+        (computerSelection === "rock" && playerSelection === "scissors") ||
+        (computerSelection === "scissors" && playerSelection === "paper")
+        ) {
+
+        //when computer beats player//    
+        let message = `The computer wins ! ${computerSelection} beats ${playerSelection} `;
+
+        computerScore +=1;
+
+    } else if (
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
+        )   {
+
+        //when user beats computer//
+        let message = `You win ! ${playerSelection} beats ${computerSelection} `
+        
+        playerScore +=1;  
+    }
+}
 
 const btn = document.querySelectorAll('button')
 
 btn.forEach(button => button.addEventListener('click', function playRound() {
     //comparing the playerSelection and computerSelection//
-    let playerScore = 0;
-    let computerScore =0;
+    
     
     
     computerSelection = generateComputerChoice();  
@@ -38,30 +80,11 @@ btn.forEach(button => button.addEventListener('click', function playRound() {
             break;
     }
 
-    if (playerSelection === computerSelection) {
-        
-        //if the values are same//
-        alert("It's a tie !");
-    } else if (
-        (computerSelection === "paper" && playerSelection === "rock") ||
-        (computerSelection === "rock" && playerSelection === "scissors") ||
-        (computerSelection === "scissors" && playerSelection === "paper")
-        ) {
+    moveComparator();
+    console.log(playerScore)
+    console.log(computerScore)
 
-        //when computer beats player//    
-        let message = `The computer wins ! ${computerSelection} beats ${playerSelection} `;
-        alert(message);   
-    } else if (
-        (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "scissors" && computerSelection === "paper")
-        )   {
-
-        //when user beats computer//
-        let message = `You win ! ${playerSelection} beats ${computerSelection} `
-        alert(message);
-        
-    }
+    scoreKeeper();
 }))
 
 
