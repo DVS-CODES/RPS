@@ -1,31 +1,44 @@
-function getComputerChoice() {
-    //using random number generated and dividing possibilities with 33 % each between rock paper and scissors//
+function generateComputerChoice () {
     let number= Math.floor(Math.random()*100);
-    
-    let choice;
+
+    let computerSelection;
     if (number < 34) {
-        choice = "rock" ;
+        computerSelection = "rock" ;
     }
     else if (number < 67 ) {
-        choice = "paper" ;
+        computerSelection = "paper" ;
     }
     else {
-        choice = "scissors" ; 
-    }    
-    return choice;
+        computerSelection = "scissors" ; 
+    } return computerSelection
 }
 
-function playRound(computerSelection,s) {
+
+
+const btn = document.querySelectorAll('button')
+
+btn.forEach(button => button.addEventListener('click', function playRound() {
     //comparing the playerSelection and computerSelection//
+    let playerScore = 0;
+    let computerScore =0;
+    
+    
+    computerSelection = generateComputerChoice();  
+    
 
-    if (playerSelection !== "rock" &&
-        playerSelection !== "paper" && 
-        playerSelection !== "scissors") {
+    switch(button.id) {
+        case 'rock':
+            playerSelection = 'rock';
+            break;
+        case 'scissors':
+            playerSelection = 'scissors';
+            break;
+        case 'paper':
+            playerSelection = 'paper';
+            break;
+    }
 
-        //the case if user inputs things that are other than rock paper or scissors//    
-        let message = `${playerSelection} is not a valid input, it should be rock, paper or scissors`;
-        alert(message);
-    } else if (playerSelection === computerSelection) {
+    if (playerSelection === computerSelection) {
         
         //if the values are same//
         alert("It's a tie !");
@@ -49,25 +62,6 @@ function playRound(computerSelection,s) {
         alert(message);
         
     }
-}
-
-const btn = document.querySelectorAll('button')
-
-btn.forEach(button => button.addEventListener('click', () => {
-    
-    switch(button.id) {
-        case 'rock':
-            playerSelection = 'rock';
-            break;
-        case 'scissors':
-            playerSelection = 'scissors';
-            break;
-        case 'paper':
-            playerSelection = 'paper';
-            break;
-    }
-    }
-    
-))
+}))
 
 
