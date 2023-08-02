@@ -1,5 +1,7 @@
 let playerScore = 0;
 let computerScore =0;
+let player = document.querySelector('.player-score')
+let comp = document.querySelector('.comp-score')
 
 function generateComputerChoice () {
     let number= Math.floor(Math.random()*100);
@@ -44,6 +46,7 @@ function moveComparator() {
         let message = `The computer wins ! ${computerSelection} beats ${playerSelection} `;
 
         computerScore +=1;
+        comp.textContent = computerScore
 
     } else if (
         (playerSelection === "paper" && computerSelection === "rock") ||
@@ -54,7 +57,8 @@ function moveComparator() {
         //when user beats computer//
         let message = `You win ! ${playerSelection} beats ${computerSelection} `
         
-        playerScore +=1;  
+        playerScore +=1; 
+        player.textContent = playerScore 
     }
 }
 
