@@ -1,0 +1,31 @@
+.buttons {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+#rock, #paper, #scissors {
+    height: 100px;
+    width: 200px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.score-title {
+    display: flex;
+    justify-self: center;
+    font-family:'Times New Roman', Times, serif ;
+    font-size: 20px;
+    gap: 30px;
+}
