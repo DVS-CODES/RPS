@@ -2,6 +2,7 @@ let playerScore = 0;
 let computerScore =0;
 let player = document.querySelector('.player-score')
 let comp = document.querySelector('.comp-score')
+let declaration = document.querySelector('.declaration')
 
 function generateComputerChoice () {
     let number= Math.floor(Math.random()*100);
@@ -24,10 +25,12 @@ function scoreKeeper () {
         console.log('player wins')
         playerScore=0;
         computerScore=0;
+        declaration.textContent =`Player wins ! Press button to replay !`
     } else if (computerScore>=5) {
         console.log('computer wins')
         computerScore=0;
         playerScore=0;
+        declaration.textContent =`Skyne....I mean computer wins ! Press button to replay !`
     }
 }
 
